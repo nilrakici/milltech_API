@@ -1,220 +1,904 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.10.0 on darwin)" generated="20211224 23:44:14.910" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.10.0 on darwin)" generated="20221104 19:47:43.058" rpa="false" schemaversion="2">
 <suite id="s1" name="Api Test Case" source="/Users/nilrakici/IdeaProjects/new/src/api_test_case.robot">
-<test id="s1-t1" name="Scenario: API Test">
-<kw name="Given I Set GET user service API endpoint">
+<test id="s1-t1" name="Scenario: Type Check">
+<kw name="Given I am searching for a postcode">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>mysession</arg>
 <arg>${base_url}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20211224 23:44:15.087" level="INFO">Creating Session using : alias=mysession, url=https://gorest.co.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20211224 23:44:15.086" endtime="20211224 23:44:15.087"/>
+<msg timestamp="20221104 19:47:43.272" level="INFO">Creating Session using : alias=mysession, url=http://api.zippopotam.us/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221104 19:47:43.271" endtime="20221104 19:47:43.272"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${session}</arg>
 <arg>mysession</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:15.088" level="INFO">${session} = mysession</msg>
-<status status="PASS" starttime="20211224 23:44:15.087" endtime="20211224 23:44:15.088"/>
+<msg timestamp="20221104 19:47:43.272" level="INFO">${session} = mysession</msg>
+<status status="PASS" starttime="20221104 19:47:43.272" endtime="20221104 19:47:43.272"/>
 </kw>
-<status status="PASS" starttime="20211224 23:44:15.084" endtime="20211224 23:44:15.088"/>
+<status status="PASS" starttime="20221104 19:47:43.271" endtime="20221104 19:47:43.273"/>
 </kw>
-<kw name="When I Send a GET request">
+<kw name="When I make a valid request">
+<arg>us</arg>
+<arg>90210</arg>
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${session}</arg>
-<arg>/public/v1/users</arg>
+<arg>${code_request}${seperator}${range}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20211224 23:44:16.056" level="INFO">GET Request : url=https://gorest.co.in/public/v1/users 
- path_url=/public/v1/users 
+<msg timestamp="20221104 19:47:43.607" level="INFO">GET Request : url=http://api.zippopotam.us/us/90210 
+ path_url=/us/90210 
  headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20211224 23:44:16.056" level="INFO">GET Response : url=https://gorest.co.in/public/v1/users 
+<msg timestamp="20221104 19:47:43.607" level="INFO">GET Response : url=http://api.zippopotam.us/us/90210 
  status=200, reason=OK 
- headers={'Server': 'nginx', 'Date': 'Fri, 24 Dec 2021 20:44:16 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding, Origin', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '0', 'X-Content-Type-Options': 'nosniff', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'ETag': 'W/"e33ed5dfe85277f5e33a832e8e7f1bef"', 'Cache-Control': 'max-age=0, private, must-revalidate', 'X-Request-Id': '6ec081d1-a9e2-4ed4-bff1-d2e093a39bbc', 'X-Runtime': '0.008831', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains', 'Content-Encoding': 'gzip'} 
- body={"meta":{"pagination":{"total":1828,"pages":92,"page":1,"limit":20,"links":{"previous":null,"current":"https://gorest.co.in/public/v1/users?page=1","next":"https://gorest.co.in/public/v1/users?page=2"}}},"data":[{"id":2304,"name":"Carlos Perez1","email":"carpe31@falso.com","gender":"male","status":"active"},{"id":2305,"name":"Carlos2 Perez","email":"carpe4@falso.com","gender":"male","status":"active"},{"id":2344,"name":"chand2","email":"chania@gmail.com","gender":"female","status":"active"},{"id":2362,"name":"Jiangtiezhu2","email":"Jiangtiezhu2@kd.com","gender":"male","status":"active"},{"id":58,"name":"Fr. Chanakya Ahuja","email":"ahuja_fr_chanakya@gleichner.org","gender":"male","status":"inactive"},{"id":59,"name":"Gautami Kaur DVM","email":"dvm_gautami_kaur@bashirian-reichel.biz","gender":"female","status":"inactive"},{"id":60,"name":"Bala Chattopadhyay","email":"chattopadhyay_bala@schuppe.info","gender":"female","status":"active"},{"id":61,"name":"Vrinda Shukla CPA","email":"cpa_shukla_vrinda@goodwin.co","gender":"male","status":"active"},{"id":62,"name":"Kamala Johar","email":"johar_kamala@bode.net","gender":"male","status":"inactive"},{"id":2062,"name":"Deborah Brakus","email":"Caterina43@gmail.com","gender":"male","status":"active"},{"id":64,"name":"Sanya Bandopadhyay","email":"sanya_bandopadhyay@cartwright.org","gender":"male","status":"inactive"},{"id":65,"name":"Gauraang Jain","email":"gauraang_jain@kuhn-quitzon.biz","gender":"male","status":"inactive"},{"id":67,"name":"Veda Arora CPA","email":"arora_veda_cpa@koelpin-treutel.co","gender":"male","status":"inactive"},{"id":68,"name":"Devagya Nair IV","email":"iv_nair_devagya@bayer.biz","gender":"male","status":"inactive"},{"id":69,"name":"Achalesvara Namboothiri","email":"namboothiri_achalesvara@fahey.name","gender":"female","status":"inactive"},{"id":70,"name":"Kailash Somayaji","email":"somayaji_kailash@feeney.biz","gender":"male","status":"active"},{"id":71,"name":"Dhyanesh Arora II","email":"arora_ii_dhyanesh@lindgren.name","gender":"male","status":"active"},{"id":72,"name":"Dipankar Embranthiri","email":"embranthiri_dipankar@aufderhar-quigley.com","gender":"female","status":"active"},{"id":73,"name":"Balachandra Pandey","email":"balachandra_pandey@moore.info","gender":"male","status":"inactive"},{"id":1728,"name":"Tanya","email":"1111oo@tut.by","gender":"female","status":"active"}]} 
+ headers={'Date': 'Fri, 04 Nov 2022 16:47:43 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-cache': 'hit', 'charset': 'UTF-8', 'vary': 'Accept-Encoding', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=CrBMw1nNibu%2F%2By%2F4QSmcFaj1TpCr9JVVV6RW6K9MgJ9ntae8dzDhZPje9z5fEZEtsk8L3w3YkC1v5SdsZvQrNH7x4hpT339RtFEFuF9mtocxd2yOTAUTqxx4VddDjqOUCoUL%2Fw%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'access-control-allow-origin': '*', 'Server': 'cloudflare', 'CF-RAY': '764ed5499a9ee1a3-IST', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"post code": "90210", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Beverly Hills", "longitude": "-118.4065", "state": "California", "state abbreviation": "CA", "latitude": "34.0901"}]} 
  </msg>
-<msg timestamp="20211224 23:44:16.057" level="INFO">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gorest.co.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
-  warnings.warn(</msg>
-<msg timestamp="20211224 23:44:16.057" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20211224 23:44:15.088" endtime="20211224 23:44:16.057"/>
-</kw>
-<kw name="Convert To String" library="BuiltIn">
-<var>${status}</var>
-<arg>${response.status_code}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20211224 23:44:16.060" level="INFO">${status} = 200</msg>
-<status status="PASS" starttime="20211224 23:44:16.058" endtime="20211224 23:44:16.060"/>
-</kw>
-<kw name="Convert To String" library="BuiltIn">
-<var>${body}</var>
-<arg>${response.content}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20211224 23:44:16.063" level="INFO">${body} = {"meta":{"pagination":{"total":1828,"pages":92,"page":1,"limit":20,"links":{"previous":null,"current":"https://gorest.co.in/public/v1/users?page=1","next":"https://gorest.co.in/public/v1/users?page=2"...</msg>
-<status status="PASS" starttime="20211224 23:44:16.060" endtime="20211224 23:44:16.064"/>
+<msg timestamp="20221104 19:47:43.607" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221104 19:47:43.273" endtime="20221104 19:47:43.607"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${json_response}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20211224 23:44:16.066" level="INFO">${json_response} = {'meta': {'pagination': {'total': 1828, 'pages': 92, 'page': 1, 'limit': 20, 'links': {'previous': None, 'current': 'https://gorest.co.in/public/v1/users?page=1', 'next': 'https://gorest.co.in/public/...</msg>
-<status status="PASS" starttime="20211224 23:44:16.064" endtime="20211224 23:44:16.067"/>
+<msg timestamp="20221104 19:47:43.609" level="INFO">${json_response} = {'post code': '90210', 'country': 'United States', 'country abbreviation': 'US', 'places': [{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA',...</msg>
+<status status="PASS" starttime="20221104 19:47:43.607" endtime="20221104 19:47:43.609"/>
 </kw>
 <kw name="Get Value From Json" library="JSONLibrary">
-<var>${total_data}</var>
+<var>${post_code}</var>
 <arg>${json_response}</arg>
-<arg>meta.pagination.total</arg>
+<arg>'post code'</arg>
 <doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20211224 23:44:16.109" level="INFO">${total_data} = [1828]</msg>
-<status status="PASS" starttime="20211224 23:44:16.067" endtime="20211224 23:44:16.109"/>
+<msg timestamp="20221104 19:47:43.642" level="INFO">${post_code} = ['90210']</msg>
+<status status="PASS" starttime="20221104 19:47:43.609" endtime="20221104 19:47:43.642"/>
 </kw>
 <kw name="Get Value From Json" library="JSONLibrary">
-<var>${pages_data}</var>
+<var>${country}</var>
 <arg>${json_response}</arg>
-<arg>meta.pagination.pages</arg>
+<arg>'country'</arg>
 <doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20211224 23:44:16.131" level="INFO">${pages_data} = [92]</msg>
-<status status="PASS" starttime="20211224 23:44:16.109" endtime="20211224 23:44:16.131"/>
+<msg timestamp="20221104 19:47:43.664" level="INFO">${country} = ['United States']</msg>
+<status status="PASS" starttime="20221104 19:47:43.642" endtime="20221104 19:47:43.665"/>
 </kw>
 <kw name="Get Value From Json" library="JSONLibrary">
-<var>${page_data}</var>
+<var>${country_abv}</var>
 <arg>${json_response}</arg>
-<arg>meta.pagination.page</arg>
+<arg>'country abbreviation'</arg>
 <doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20211224 23:44:16.150" level="INFO">${page_data} = [1]</msg>
-<status status="PASS" starttime="20211224 23:44:16.131" endtime="20211224 23:44:16.150"/>
+<msg timestamp="20221104 19:47:43.683" level="INFO">${country_abv} = ['US']</msg>
+<status status="PASS" starttime="20221104 19:47:43.665" endtime="20221104 19:47:43.683"/>
 </kw>
 <kw name="Get Value From Json" library="JSONLibrary">
-<var>${limit_data}</var>
+<var>${places}</var>
 <arg>${json_response}</arg>
-<arg>meta.pagination.limit</arg>
+<arg>'places'</arg>
 <doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20211224 23:44:16.168" level="INFO">${limit_data} = [20]</msg>
-<status status="PASS" starttime="20211224 23:44:16.150" endtime="20211224 23:44:16.168"/>
+<msg timestamp="20221104 19:47:43.703" level="INFO">${places} = [[{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA', 'latitude': '34.0901'}]]</msg>
+<status status="PASS" starttime="20221104 19:47:43.683" endtime="20221104 19:47:43.703"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${places}[0]</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221104 19:47:43.703" level="INFO">Length is 1</msg>
+<msg timestamp="20221104 19:47:43.703" level="INFO">${len} = 1</msg>
+<status status="PASS" starttime="20221104 19:47:43.703" endtime="20221104 19:47:43.703"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${states}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].state</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:43.723" level="INFO">${states} = ['California']</msg>
+<status status="PASS" starttime="20221104 19:47:43.703" endtime="20221104 19:47:43.723"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${place_name}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].'place name'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:43.759" level="INFO">${place_name} = ['Beverly Hills']</msg>
+<status status="PASS" starttime="20221104 19:47:43.723" endtime="20221104 19:47:43.759"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${longitude}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].longitude</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:43.779" level="INFO">${longitude} = ['-118.4065']</msg>
+<status status="PASS" starttime="20221104 19:47:43.759" endtime="20221104 19:47:43.779"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${state_abv}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].'state abbreviation'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:43.806" level="INFO">${state_abv} = ['CA']</msg>
+<status status="PASS" starttime="20221104 19:47:43.779" endtime="20221104 19:47:43.806"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${latitude}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].latitude</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:43.830" level="INFO">${latitude} = ['34.0901']</msg>
+<status status="PASS" starttime="20221104 19:47:43.806" endtime="20221104 19:47:43.830"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${json_response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.169" level="INFO">${json_response} = {'meta': {'pagination': {'total': 1828, 'pages': 92, 'page': 1, 'limit': 20, 'links': {'previous': None, 'current': 'https://gorest.co.in/public/v1/users?page=1', 'next': 'https://gorest.co.in/public/...</msg>
-<status status="PASS" starttime="20211224 23:44:16.168" endtime="20211224 23:44:16.169"/>
+<msg timestamp="20221104 19:47:43.831" level="INFO">${json_response} = {'post code': '90210', 'country': 'United States', 'country abbreviation': 'US', 'places': [{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA',...</msg>
+<status status="PASS" starttime="20221104 19:47:43.830" endtime="20221104 19:47:43.831"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${total_data}</arg>
+<arg>${post_code}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.169" level="INFO">${total_data} = [1828]</msg>
-<status status="PASS" starttime="20211224 23:44:16.169" endtime="20211224 23:44:16.169"/>
+<msg timestamp="20221104 19:47:43.831" level="INFO">${post_code} = ['90210']</msg>
+<status status="PASS" starttime="20221104 19:47:43.831" endtime="20221104 19:47:43.831"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${pages_data}</arg>
+<arg>${country}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.169" level="INFO">${pages_data} = [92]</msg>
-<status status="PASS" starttime="20211224 23:44:16.169" endtime="20211224 23:44:16.170"/>
+<msg timestamp="20221104 19:47:43.832" level="INFO">${country} = ['United States']</msg>
+<status status="PASS" starttime="20221104 19:47:43.831" endtime="20221104 19:47:43.832"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${page_data}</arg>
+<arg>${country_abv}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.170" level="INFO">${page_data} = [1]</msg>
-<status status="PASS" starttime="20211224 23:44:16.170" endtime="20211224 23:44:16.170"/>
+<msg timestamp="20221104 19:47:43.832" level="INFO">${country_abv} = ['US']</msg>
+<status status="PASS" starttime="20221104 19:47:43.832" endtime="20221104 19:47:43.832"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${limit_data}</arg>
+<arg>${places}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.170" level="INFO">${limit_data} = [20]</msg>
-<status status="PASS" starttime="20211224 23:44:16.170" endtime="20211224 23:44:16.170"/>
+<msg timestamp="20221104 19:47:43.833" level="INFO">${places} = [[{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA', 'latitude': '34.0901'}]]</msg>
+<status status="PASS" starttime="20221104 19:47:43.832" endtime="20221104 19:47:43.833"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${response}</arg>
+<arg>${states}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.171" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20211224 23:44:16.170" endtime="20211224 23:44:16.171"/>
+<msg timestamp="20221104 19:47:43.833" level="INFO">${states} = ['California']</msg>
+<status status="PASS" starttime="20221104 19:47:43.833" endtime="20221104 19:47:43.833"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${status}</arg>
+<arg>${longitude}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.171" level="INFO">${status} = 200</msg>
-<status status="PASS" starttime="20211224 23:44:16.171" endtime="20211224 23:44:16.171"/>
+<msg timestamp="20221104 19:47:43.833" level="INFO">${longitude} = ['-118.4065']</msg>
+<status status="PASS" starttime="20221104 19:47:43.833" endtime="20221104 19:47:43.834"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<arg>${body}</arg>
+<arg>${place_name}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20211224 23:44:16.171" level="INFO">${body} = {"meta":{"pagination":{"total":1828,"pages":92,"page":1,"limit":20,"links":{"previous":null,"current":"https://gorest.co.in/public/v1/users?page=1","next":"https://gorest.co.in/public/v1/users?page=2"...</msg>
-<status status="PASS" starttime="20211224 23:44:16.171" endtime="20211224 23:44:16.171"/>
+<msg timestamp="20221104 19:47:43.834" level="INFO">${place_name} = ['Beverly Hills']</msg>
+<status status="PASS" starttime="20221104 19:47:43.834" endtime="20221104 19:47:43.834"/>
 </kw>
-<status status="PASS" starttime="20211224 23:44:15.088" endtime="20211224 23:44:16.171"/>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${latitude}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:43.834" level="INFO">${latitude} = ['34.0901']</msg>
+<status status="PASS" starttime="20221104 19:47:43.834" endtime="20221104 19:47:43.834"/>
 </kw>
-<kw name="Then Response should be valid">
-<kw name="Should Not Be Equal" library="BuiltIn">
-<arg>${json_response}</arg>
-<arg>NULL</arg>
-<doc>Fails if the given objects are equal.</doc>
-<msg timestamp="20211224 23:44:16.172" level="INFO">Argument types are:
-&lt;class 'dict'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20211224 23:44:16.172" endtime="20211224 23:44:16.172"/>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${state_abv}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:43.835" level="INFO">${state_abv} = ['CA']</msg>
+<status status="PASS" starttime="20221104 19:47:43.834" endtime="20221104 19:47:43.835"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:43.273" endtime="20221104 19:47:43.835"/>
+</kw>
+<kw name="Then the request contains the following fields and types">
+<kw name="Evaluate" library="BuiltIn">
+<var>${type_post}</var>
+<arg>type(($post_code)[0]).__name__</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221104 19:47:43.839" level="INFO">${type_post} = str</msg>
+<status status="PASS" starttime="20221104 19:47:43.835" endtime="20221104 19:47:43.839"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
-<arg>${status}</arg>
-<arg>200</arg>
+<arg>${type_post}</arg>
+<arg>str</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20211224 23:44:16.172" endtime="20211224 23:44:16.173"/>
+<status status="PASS" starttime="20221104 19:47:43.839" endtime="20221104 19:47:43.839"/>
 </kw>
-<kw name="Should Not Be Equal" library="BuiltIn">
-<arg>${body}</arg>
-<arg>NULL</arg>
-<doc>Fails if the given objects are equal.</doc>
-<status status="PASS" starttime="20211224 23:44:16.173" endtime="20211224 23:44:16.173"/>
+<kw name="Evaluate" library="BuiltIn">
+<var>${type_country}</var>
+<arg>type(($country)[0]).__name__</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221104 19:47:43.839" level="INFO">${type_country} = str</msg>
+<status status="PASS" starttime="20221104 19:47:43.839" endtime="20221104 19:47:43.839"/>
 </kw>
-<kw name="Should Not Be Equal" library="BuiltIn">
-<arg>${total_data}</arg>
-<arg>NULL</arg>
-<doc>Fails if the given objects are equal.</doc>
-<msg timestamp="20211224 23:44:16.173" level="INFO">Argument types are:
-&lt;class 'list'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20211224 23:44:16.173" endtime="20211224 23:44:16.173"/>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${type_country}</arg>
+<arg>str</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:43.839" endtime="20221104 19:47:43.840"/>
 </kw>
-<kw name="Should Not Be Equal" library="BuiltIn">
-<arg>${pages_data}</arg>
-<arg>NULL</arg>
-<doc>Fails if the given objects are equal.</doc>
-<msg timestamp="20211224 23:44:16.173" level="INFO">Argument types are:
-&lt;class 'list'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20211224 23:44:16.173" endtime="20211224 23:44:16.173"/>
+<kw name="Evaluate" library="BuiltIn">
+<var>${type_country_abv}</var>
+<arg>type(($country_abv)[0]).__name__</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221104 19:47:43.841" level="INFO">${type_country_abv} = str</msg>
+<status status="PASS" starttime="20221104 19:47:43.840" endtime="20221104 19:47:43.841"/>
 </kw>
-<kw name="Should Not Be Equal" library="BuiltIn">
-<arg>${page_data}</arg>
-<arg>NULL</arg>
-<doc>Fails if the given objects are equal.</doc>
-<msg timestamp="20211224 23:44:16.174" level="INFO">Argument types are:
-&lt;class 'list'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20211224 23:44:16.174" endtime="20211224 23:44:16.174"/>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${type_country_abv}</arg>
+<arg>str</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:43.841" endtime="20221104 19:47:43.841"/>
 </kw>
-<kw name="Should Not Be Equal" library="BuiltIn">
-<arg>${limit_data}</arg>
-<arg>NULL</arg>
-<doc>Fails if the given objects are equal.</doc>
-<msg timestamp="20211224 23:44:16.174" level="INFO">Argument types are:
-&lt;class 'list'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" starttime="20211224 23:44:16.174" endtime="20211224 23:44:16.174"/>
+<kw name="Evaluate" library="BuiltIn">
+<var>${type_places}</var>
+<arg>type(($places)[0]).__name__</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221104 19:47:43.842" level="INFO">${type_places} = list</msg>
+<status status="PASS" starttime="20221104 19:47:43.841" endtime="20221104 19:47:43.842"/>
 </kw>
-<status status="PASS" starttime="20211224 23:44:16.172" endtime="20211224 23:44:16.174"/>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${type_places}</arg>
+<arg>list</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:43.842" endtime="20221104 19:47:43.842"/>
 </kw>
-<status status="PASS" starttime="20211224 23:44:15.083" endtime="20211224 23:44:16.174"/>
+<status status="PASS" starttime="20221104 19:47:43.835" endtime="20221104 19:47:43.842"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:43.270" endtime="20221104 19:47:43.842"/>
 </test>
-<status status="PASS" starttime="20211224 23:44:14.913" endtime="20211224 23:44:16.175"/>
+<test id="s1-t2" name="Scenario: Request Response Check">
+<kw name="Given I am searching for a postcode">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221104 19:47:43.844" level="INFO">Creating Session using : alias=mysession, url=http://api.zippopotam.us/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221104 19:47:43.844" endtime="20221104 19:47:43.844"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${session}</arg>
+<arg>mysession</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:43.845" level="INFO">${session} = mysession</msg>
+<status status="PASS" starttime="20221104 19:47:43.844" endtime="20221104 19:47:43.845"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:43.843" endtime="20221104 19:47:43.845"/>
+</kw>
+<kw name="When I make a valid request">
+<arg>us</arg>
+<arg>90210</arg>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${session}</arg>
+<arg>${code_request}${seperator}${range}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221104 19:47:44.069" level="INFO">GET Request : url=http://api.zippopotam.us/us/90210 
+ path_url=/us/90210 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221104 19:47:44.069" level="INFO">GET Response : url=http://api.zippopotam.us/us/90210 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 04 Nov 2022 16:47:44 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-cache': 'hit', 'charset': 'UTF-8', 'vary': 'Accept-Encoding', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=A3Ck3M9i4NlBRZCM5xcA52OUudHp0g3s0KrJmC%2FdRR8F3pIzGVEXd5aM5FCbi1wWasGSXvwgZJt3vaDfMAPnqZyjDgMC6t2ukDpsnjuj2XBcJHVdYA4HGlgq0vTHd9woIJuksA%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'access-control-allow-origin': '*', 'Server': 'cloudflare', 'CF-RAY': '764ed54d1ba950f3-IST', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"post code": "90210", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Beverly Hills", "longitude": "-118.4065", "state": "California", "state abbreviation": "CA", "latitude": "34.0901"}]} 
+ </msg>
+<msg timestamp="20221104 19:47:44.070" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221104 19:47:43.845" endtime="20221104 19:47:44.070"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${json_response}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221104 19:47:44.072" level="INFO">${json_response} = {'post code': '90210', 'country': 'United States', 'country abbreviation': 'US', 'places': [{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA',...</msg>
+<status status="PASS" starttime="20221104 19:47:44.070" endtime="20221104 19:47:44.072"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${post_code}</var>
+<arg>${json_response}</arg>
+<arg>'post code'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.104" level="INFO">${post_code} = ['90210']</msg>
+<status status="PASS" starttime="20221104 19:47:44.072" endtime="20221104 19:47:44.104"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${country}</var>
+<arg>${json_response}</arg>
+<arg>'country'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.126" level="INFO">${country} = ['United States']</msg>
+<status status="PASS" starttime="20221104 19:47:44.104" endtime="20221104 19:47:44.126"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${country_abv}</var>
+<arg>${json_response}</arg>
+<arg>'country abbreviation'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.145" level="INFO">${country_abv} = ['US']</msg>
+<status status="PASS" starttime="20221104 19:47:44.126" endtime="20221104 19:47:44.145"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${places}</var>
+<arg>${json_response}</arg>
+<arg>'places'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.164" level="INFO">${places} = [[{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA', 'latitude': '34.0901'}]]</msg>
+<status status="PASS" starttime="20221104 19:47:44.145" endtime="20221104 19:47:44.164"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${places}[0]</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221104 19:47:44.165" level="INFO">Length is 1</msg>
+<msg timestamp="20221104 19:47:44.165" level="INFO">${len} = 1</msg>
+<status status="PASS" starttime="20221104 19:47:44.165" endtime="20221104 19:47:44.165"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${states}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].state</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.186" level="INFO">${states} = ['California']</msg>
+<status status="PASS" starttime="20221104 19:47:44.165" endtime="20221104 19:47:44.186"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${place_name}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].'place name'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.203" level="INFO">${place_name} = ['Beverly Hills']</msg>
+<status status="PASS" starttime="20221104 19:47:44.186" endtime="20221104 19:47:44.203"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${longitude}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].longitude</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.223" level="INFO">${longitude} = ['-118.4065']</msg>
+<status status="PASS" starttime="20221104 19:47:44.203" endtime="20221104 19:47:44.223"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${state_abv}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].'state abbreviation'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.241" level="INFO">${state_abv} = ['CA']</msg>
+<status status="PASS" starttime="20221104 19:47:44.223" endtime="20221104 19:47:44.241"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${latitude}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].latitude</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.260" level="INFO">${latitude} = ['34.0901']</msg>
+<status status="PASS" starttime="20221104 19:47:44.242" endtime="20221104 19:47:44.261"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${json_response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.261" level="INFO">${json_response} = {'post code': '90210', 'country': 'United States', 'country abbreviation': 'US', 'places': [{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA',...</msg>
+<status status="PASS" starttime="20221104 19:47:44.261" endtime="20221104 19:47:44.261"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${post_code}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.262" level="INFO">${post_code} = ['90210']</msg>
+<status status="PASS" starttime="20221104 19:47:44.261" endtime="20221104 19:47:44.262"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.262" level="INFO">${country} = ['United States']</msg>
+<status status="PASS" starttime="20221104 19:47:44.262" endtime="20221104 19:47:44.262"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${country_abv}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.262" level="INFO">${country_abv} = ['US']</msg>
+<status status="PASS" starttime="20221104 19:47:44.262" endtime="20221104 19:47:44.262"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${places}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.263" level="INFO">${places} = [[{'place name': 'Beverly Hills', 'longitude': '-118.4065', 'state': 'California', 'state abbreviation': 'CA', 'latitude': '34.0901'}]]</msg>
+<status status="PASS" starttime="20221104 19:47:44.263" endtime="20221104 19:47:44.263"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${states}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.263" level="INFO">${states} = ['California']</msg>
+<status status="PASS" starttime="20221104 19:47:44.263" endtime="20221104 19:47:44.263"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${longitude}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.264" level="INFO">${longitude} = ['-118.4065']</msg>
+<status status="PASS" starttime="20221104 19:47:44.263" endtime="20221104 19:47:44.264"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${place_name}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.264" level="INFO">${place_name} = ['Beverly Hills']</msg>
+<status status="PASS" starttime="20221104 19:47:44.264" endtime="20221104 19:47:44.264"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${latitude}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.265" level="INFO">${latitude} = ['34.0901']</msg>
+<status status="PASS" starttime="20221104 19:47:44.264" endtime="20221104 19:47:44.265"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${state_abv}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.265" level="INFO">${state_abv} = ['CA']</msg>
+<status status="PASS" starttime="20221104 19:47:44.265" endtime="20221104 19:47:44.265"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:43.845" endtime="20221104 19:47:44.265"/>
+</kw>
+<kw name="Then the post code returned in the response matches the postcode I pass as a request parameter">
+<arg>us</arg>
+<arg>90210</arg>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${range}</arg>
+<arg>${post_code}[0]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:44.266" endtime="20221104 19:47:44.266"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.265" endtime="20221104 19:47:44.266"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:43.843" endtime="20221104 19:47:44.266"/>
+</test>
+<test id="s1-t3" name="Scenario: Invalid Post Code Check">
+<kw name="Given I am searching for a postcode">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221104 19:47:44.268" level="INFO">Creating Session using : alias=mysession, url=http://api.zippopotam.us/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221104 19:47:44.267" endtime="20221104 19:47:44.268"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${session}</arg>
+<arg>mysession</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.268" level="INFO">${session} = mysession</msg>
+<status status="PASS" starttime="20221104 19:47:44.268" endtime="20221104 19:47:44.268"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.267" endtime="20221104 19:47:44.268"/>
+</kw>
+<kw name="When I use the wrong country code">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${session}</arg>
+<arg>jh/34510</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221104 19:47:44.567" level="INFO">GET Request : url=http://api.zippopotam.us/jh/34510 
+ path_url=/jh/34510 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221104 19:47:44.567" level="INFO">GET Response : url=http://api.zippopotam.us/jh/34510 
+ status=404, reason=Not Found 
+ headers={'Date': 'Fri, 04 Nov 2022 16:47:44 GMT', 'Content-Type': 'application/json', 'Content-Length': '2', 'Connection': 'keep-alive', 'vary': 'Accept-Encoding', 'charset': 'UTF-8', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=ejhJ%2Fi2DtSP5ie9rJiRiALeAhV5DmrILQRWlHBppJPnSLJhQt2PjMXiw96S4xOraQG2jbvjKS8rXkim8eZa7Cdno9%2F%2Brun3rLgiqaV1CmyWLbSCFbgpabd%2BSt8fHWTEx41gvxQ%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'access-control-allow-origin': '*', 'Server': 'cloudflare', 'CF-RAY': '764ed5501b4a510c-IST', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={} 
+ </msg>
+<msg timestamp="20221104 19:47:44.567" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221104 19:47:44.269" endtime="20221104 19:47:44.568"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${wrong_status}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20221104 19:47:44.570" level="INFO">${wrong_status} = 404</msg>
+<status status="PASS" starttime="20221104 19:47:44.568" endtime="20221104 19:47:44.570"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${wrong_status}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.571" level="INFO">${wrong_status} = 404</msg>
+<status status="PASS" starttime="20221104 19:47:44.570" endtime="20221104 19:47:44.571"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.269" endtime="20221104 19:47:44.571"/>
+</kw>
+<kw name="Then no data is returned and I receive a 404 error">
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${wrong_status}</arg>
+<arg>404</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:44.572" endtime="20221104 19:47:44.573"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.572" endtime="20221104 19:47:44.573"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.267" endtime="20221104 19:47:44.573"/>
+</test>
+<test id="s1-t4" name="Scenario: Places Check">
+<kw name="Given I am searching for a postcode">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221104 19:47:44.575" level="INFO">Creating Session using : alias=mysession, url=http://api.zippopotam.us/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221104 19:47:44.575" endtime="20221104 19:47:44.575"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${session}</arg>
+<arg>mysession</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:44.576" level="INFO">${session} = mysession</msg>
+<status status="PASS" starttime="20221104 19:47:44.576" endtime="20221104 19:47:44.576"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.574" endtime="20221104 19:47:44.576"/>
+</kw>
+<kw name="When I make a valid request">
+<arg>gb</arg>
+<arg>GU22</arg>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${session}</arg>
+<arg>${code_request}${seperator}${range}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221104 19:47:44.831" level="INFO">GET Request : url=http://api.zippopotam.us/gb/GU22 
+ path_url=/gb/GU22 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221104 19:47:44.831" level="INFO">GET Response : url=http://api.zippopotam.us/gb/GU22 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 04 Nov 2022 16:47:45 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'x-cache': 'hit', 'charset': 'UTF-8', 'vary': 'Accept-Encoding', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=uwmbjb2uEcDt0jd7BHIibOtR46JDK%2FW91PTsSd6XARZ49N6HUR%2FJL%2Bj3Kd4bstC1S0nBsyAXcyPzx6Lz2AfucoRWRXL2YlfgFhZNcVZsLgLG9oo8djyoNYWg9qaWFpBbpswu%2FA%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'access-control-allow-origin': '*', 'Server': 'cloudflare', 'CF-RAY': '764ed551d9855060-IST', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"post code": "GU22", "country": "Great Britain", "country abbreviation": "GB", "places": [{"place name": "Woking", "longitude": "-0.5589", "state": "England", "state abbreviation": "ENG", "latitude": "51.319"}, {"place name": "Pyrford", "longitude": "-0.5111", "state": "England", "state abbreviation": "ENG", "latitude": "51.3124"}, {"place name": "Mayford", "longitude": "-0.535", "state": "England", "state abbreviation": "ENG", "latitude": "51.3157"}, {"place name": "Old Woking", "longitude": "-0.535", "state": "England", "state abbreviation": "ENG", "latitude": "51.3157"}]} 
+ </msg>
+<msg timestamp="20221104 19:47:44.832" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221104 19:47:44.577" endtime="20221104 19:47:44.832"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${json_response}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221104 19:47:44.834" level="INFO">${json_response} = {'post code': 'GU22', 'country': 'Great Britain', 'country abbreviation': 'GB', 'places': [{'place name': 'Woking', 'longitude': '-0.5589', 'state': 'England', 'state abbreviation': 'ENG', 'latitude':...</msg>
+<status status="PASS" starttime="20221104 19:47:44.832" endtime="20221104 19:47:44.834"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${post_code}</var>
+<arg>${json_response}</arg>
+<arg>'post code'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.866" level="INFO">${post_code} = ['GU22']</msg>
+<status status="PASS" starttime="20221104 19:47:44.835" endtime="20221104 19:47:44.866"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${country}</var>
+<arg>${json_response}</arg>
+<arg>'country'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.888" level="INFO">${country} = ['Great Britain']</msg>
+<status status="PASS" starttime="20221104 19:47:44.866" endtime="20221104 19:47:44.888"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${country_abv}</var>
+<arg>${json_response}</arg>
+<arg>'country abbreviation'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.907" level="INFO">${country_abv} = ['GB']</msg>
+<status status="PASS" starttime="20221104 19:47:44.889" endtime="20221104 19:47:44.907"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${places}</var>
+<arg>${json_response}</arg>
+<arg>'places'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.926" level="INFO">${places} = [[{'place name': 'Woking', 'longitude': '-0.5589', 'state': 'England', 'state abbreviation': 'ENG', 'latitude': '51.319'}, {'place name': 'Pyrford', 'longitude': '-0.5111', 'state': 'England', 'state ...</msg>
+<status status="PASS" starttime="20221104 19:47:44.907" endtime="20221104 19:47:44.926"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${places}[0]</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221104 19:47:44.926" level="INFO">Length is 4</msg>
+<msg timestamp="20221104 19:47:44.926" level="INFO">${len} = 4</msg>
+<status status="PASS" starttime="20221104 19:47:44.926" endtime="20221104 19:47:44.926"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${states}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].state</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.946" level="INFO">${states} = ['England', 'England', 'England', 'England']</msg>
+<status status="PASS" starttime="20221104 19:47:44.926" endtime="20221104 19:47:44.946"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${place_name}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].'place name'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.967" level="INFO">${place_name} = ['Woking', 'Pyrford', 'Mayford', 'Old Woking']</msg>
+<status status="PASS" starttime="20221104 19:47:44.946" endtime="20221104 19:47:44.967"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${longitude}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].longitude</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:44.986" level="INFO">${longitude} = ['-0.5589', '-0.5111', '-0.535', '-0.535']</msg>
+<status status="PASS" starttime="20221104 19:47:44.967" endtime="20221104 19:47:44.987"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${state_abv}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].'state abbreviation'</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:45.005" level="INFO">${state_abv} = ['ENG', 'ENG', 'ENG', 'ENG']</msg>
+<status status="PASS" starttime="20221104 19:47:44.987" endtime="20221104 19:47:45.005"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${latitude}</var>
+<arg>${json_response}</arg>
+<arg>'places'[0:${len}].latitude</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20221104 19:47:45.023" level="INFO">${latitude} = ['51.319', '51.3124', '51.3157', '51.3157']</msg>
+<status status="PASS" starttime="20221104 19:47:45.005" endtime="20221104 19:47:45.023"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${json_response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.024" level="INFO">${json_response} = {'post code': 'GU22', 'country': 'Great Britain', 'country abbreviation': 'GB', 'places': [{'place name': 'Woking', 'longitude': '-0.5589', 'state': 'England', 'state abbreviation': 'ENG', 'latitude':...</msg>
+<status status="PASS" starttime="20221104 19:47:45.024" endtime="20221104 19:47:45.024"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${post_code}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.024" level="INFO">${post_code} = ['GU22']</msg>
+<status status="PASS" starttime="20221104 19:47:45.024" endtime="20221104 19:47:45.024"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.025" level="INFO">${country} = ['Great Britain']</msg>
+<status status="PASS" starttime="20221104 19:47:45.025" endtime="20221104 19:47:45.025"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${country_abv}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.025" level="INFO">${country_abv} = ['GB']</msg>
+<status status="PASS" starttime="20221104 19:47:45.025" endtime="20221104 19:47:45.025"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${places}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.026" level="INFO">${places} = [[{'place name': 'Woking', 'longitude': '-0.5589', 'state': 'England', 'state abbreviation': 'ENG', 'latitude': '51.319'}, {'place name': 'Pyrford', 'longitude': '-0.5111', 'state': 'England', 'state ...</msg>
+<status status="PASS" starttime="20221104 19:47:45.025" endtime="20221104 19:47:45.026"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${states}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.026" level="INFO">${states} = ['England', 'England', 'England', 'England']</msg>
+<status status="PASS" starttime="20221104 19:47:45.026" endtime="20221104 19:47:45.026"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${longitude}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.027" level="INFO">${longitude} = ['-0.5589', '-0.5111', '-0.535', '-0.535']</msg>
+<status status="PASS" starttime="20221104 19:47:45.026" endtime="20221104 19:47:45.027"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${place_name}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.027" level="INFO">${place_name} = ['Woking', 'Pyrford', 'Mayford', 'Old Woking']</msg>
+<status status="PASS" starttime="20221104 19:47:45.027" endtime="20221104 19:47:45.027"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${latitude}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.027" level="INFO">${latitude} = ['51.319', '51.3124', '51.3157', '51.3157']</msg>
+<status status="PASS" starttime="20221104 19:47:45.027" endtime="20221104 19:47:45.028"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${state_abv}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221104 19:47:45.028" level="INFO">${state_abv} = ['ENG', 'ENG', 'ENG', 'ENG']</msg>
+<status status="PASS" starttime="20221104 19:47:45.028" endtime="20221104 19:47:45.028"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.577" endtime="20221104 19:47:45.028"/>
+</kw>
+<kw name="Then 4 places are returned">
+<kw name="Get Length" library="BuiltIn">
+<var>${cnt}</var>
+<arg>${places}[0]</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20221104 19:47:45.029" level="INFO">Length is 4</msg>
+<msg timestamp="20221104 19:47:45.029" level="INFO">${cnt} = 4</msg>
+<status status="PASS" starttime="20221104 19:47:45.029" endtime="20221104 19:47:45.029"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${cnt}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20221104 19:47:45.029" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20221104 19:47:45.029" endtime="20221104 19:47:45.029"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.028" endtime="20221104 19:47:45.029"/>
+</kw>
+<kw name="And they are all in the state of England">
+<for flavor="IN">
+<var>${var}</var>
+<value>@{states}</value>
+<iter>
+<var name="${var}">England</var>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${var}</arg>
+<arg>England</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.030" endtime="20221104 19:47:45.030"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.030" endtime="20221104 19:47:45.030"/>
+</iter>
+<iter>
+<var name="${var}">England</var>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${var}</arg>
+<arg>England</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.031" endtime="20221104 19:47:45.031"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.030" endtime="20221104 19:47:45.031"/>
+</iter>
+<iter>
+<var name="${var}">England</var>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${var}</arg>
+<arg>England</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.031" endtime="20221104 19:47:45.031"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.031" endtime="20221104 19:47:45.031"/>
+</iter>
+<iter>
+<var name="${var}">England</var>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${var}</arg>
+<arg>England</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.031" endtime="20221104 19:47:45.032"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.031" endtime="20221104 19:47:45.032"/>
+</iter>
+<status status="PASS" starttime="20221104 19:47:45.030" endtime="20221104 19:47:45.032"/>
+</for>
+<status status="PASS" starttime="20221104 19:47:45.030" endtime="20221104 19:47:45.032"/>
+</kw>
+<kw name="And each one has a place name, longitude, state, state abbreviation and latitude">
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>4</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${longitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.032" endtime="20221104 19:47:45.033"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${place_name}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.033" endtime="20221104 19:47:45.033"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${state_abv}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.033" endtime="20221104 19:47:45.033"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${latitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.033" endtime="20221104 19:47:45.034"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.032" endtime="20221104 19:47:45.034"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${longitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.034" endtime="20221104 19:47:45.034"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${place_name}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.034" endtime="20221104 19:47:45.034"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${state_abv}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.035" endtime="20221104 19:47:45.035"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${latitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.035" endtime="20221104 19:47:45.035"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.034" endtime="20221104 19:47:45.035"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${longitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.035" endtime="20221104 19:47:45.036"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${place_name}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.036" endtime="20221104 19:47:45.036"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${state_abv}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.036" endtime="20221104 19:47:45.036"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${latitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.036" endtime="20221104 19:47:45.037"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.035" endtime="20221104 19:47:45.037"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${longitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.037" endtime="20221104 19:47:45.037"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${place_name}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.037" endtime="20221104 19:47:45.038"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${state_abv}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.038" endtime="20221104 19:47:45.038"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${latitude}[${i}]</arg>
+<arg>NULL</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20221104 19:47:45.038" endtime="20221104 19:47:45.038"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:45.037" endtime="20221104 19:47:45.038"/>
+</iter>
+<status status="PASS" starttime="20221104 19:47:45.032" endtime="20221104 19:47:45.038"/>
+</for>
+<status status="PASS" starttime="20221104 19:47:45.032" endtime="20221104 19:47:45.038"/>
+</kw>
+<status status="PASS" starttime="20221104 19:47:44.574" endtime="20221104 19:47:45.039"/>
+</test>
+<status status="PASS" starttime="20221104 19:47:43.060" endtime="20221104 19:47:45.039"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Api Test Case">Api Test Case</stat>
+<stat pass="4" fail="0" skip="0" id="s1" name="Api Test Case">Api Test Case</stat>
 </suite>
 </statistics>
 <errors>
